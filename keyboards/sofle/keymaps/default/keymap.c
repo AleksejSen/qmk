@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,   KC_F1,  KC_F2,   KC_F3,   KC_F4,   KC_F5,                      KC_F6,  KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   KC_GRV,    KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_F12,
   _______, KC_EXLM,  KC_HASH, KC_HASH,  KC_DLR, KC_PERC,                     KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_BSLS,  KC_GRV,
-  _______,  KC_EQL, KC_MINS, KC_BTN1, KC_BTN2, KC_CAPS, _______,    _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_PIPE, KC_TILD,
+  _______,  KC_EQL, KC_MINS, KC_BTN2, KC_BTN1, KC_CAPS, _______,    _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_PIPE, KC_TILD,
                 _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
 ),
 /* RAISE
@@ -353,18 +353,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
-            tap_code(KC_VOLU);
+            tap_code(KC_DOWN);
         } else {
-            tap_code(KC_VOLD);
+            tap_code(KC_UP);
         }
     } else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_PGDN);
+            tap_code(KC_RGHT);
         } else {
-            tap_code(KC_PGUP);
+            tap_code( KC_LEFT);
         }
     }
     return true;
 }
+
 
 #endif
